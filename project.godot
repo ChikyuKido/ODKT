@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="odkt"
+run/main_scene="res://scene/login_scene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+WebsocketClient="*res://scripts/singletons/websocket_client.gd"
 
 [rendering]
 
