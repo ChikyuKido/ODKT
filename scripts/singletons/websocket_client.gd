@@ -9,10 +9,10 @@ signal connection_closed(int,String)
 signal message_received(message: Variant)
 
 
-func connect_to_url(url: String) -> int:
+func connect_to_url(url: String,token: String) -> int:
 	if last_state != WebSocketPeer.STATE_CLOSED:
 		return ERR_ALREADY_IN_USE
-	socket.handshake_headers = ["authentication: Bearer token"]
+	socket.handshake_headers = ["authentication: Bearer "+token]
 	var err := socket.connect_to_url(url)
 	if err != OK:
 		return err
