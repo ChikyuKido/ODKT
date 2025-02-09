@@ -25,4 +25,4 @@ func _on_request_completed(result, response_code, headers, body):
 		error_text.add_text(str(response_code)+": Failed to register: "+json["error"])
 	else:
 		error_text.push_color(Color("green"))
-		error_text.add_text("Sucessfully logged in. You can now connect")
+		error_text.add_text("Sucessfully created account. You can now login")

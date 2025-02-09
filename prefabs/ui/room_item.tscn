@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6fad0phw0cc1"]
+
+[ext_resource type="Texture2D" uid="uid://ci22fb3cxwwl5" path="res://assets/logo/odkt_logo.png" id="1_cetmc"]
+[ext_resource type="FontFile" uid="uid://4iee5tpbf02t" path="res://assets/fonts/League Gothic/LeagueGothic-Regular.ttf" id="1_q2k30"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kncpu"]
+bg_color = Color(0.201527, 0.201527, 0.201526, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="RoomItem" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 110)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kncpu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_cetmc")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_q2k30")
+theme_override_font_sizes/normal_font_size = 36
+text = "Room: Name"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.61339, 0.61339, 0.61339, 1)
+text = "Owner: Test
+Players: 1/4"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="Panel2/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("1_q2k30")
+theme_override_font_sizes/font_size = 28
+text = "Join Game
+"

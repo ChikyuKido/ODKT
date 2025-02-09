@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://coinmfvqh0hea"]
+[gd_scene load_steps=2 format=3 uid="uid://coinmfvqh0hea"]
+
+[ext_resource type="Script" path="res://scripts/title/title_handler.gd" id="1_23c7d"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -7,3 +9,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_23c7d")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Room List"
+
+[connection signal="pressed" from="HFlowContainer/Button" to="." method="_on_room_list_clicked"]

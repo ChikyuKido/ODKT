@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf76kor8v45xd"]
 
-[ext_resource type="Script" path="res://scripts/login/connect_handler.gd" id="1_y840b"]
+[ext_resource type="Script" path="res://scripts/login/login_handler.gd" id="1_y840b"]
 [ext_resource type="Script" path="res://scripts/login/register_handler.gd" id="2_0851k"]
 
 [node name="Control" type="Control"]
@@ -55,9 +55,9 @@ text = "[color=#ff0000] Failed To connect
 "
 fit_content = true
 
-[node name="ConnectButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="LoginButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Connect"
+text = "Login"
 script = ExtResource("1_y840b")
 
 [node name="RegisterButton" type="Button" parent="Panel/VBoxContainer"]
@@ -65,5 +65,5 @@ layout_mode = 2
 text = "Register"
 script = ExtResource("2_0851k")
 
-[connection signal="pressed" from="Panel/VBoxContainer/ConnectButton" to="Panel/VBoxContainer/ConnectButton" method="login"]
+[connection signal="pressed" from="Panel/VBoxContainer/LoginButton" to="Panel/VBoxContainer/LoginButton" method="login"]
 [connection signal="pressed" from="Panel/VBoxContainer/RegisterButton" to="Panel/VBoxContainer/RegisterButton" method="_register_user"]
