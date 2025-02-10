@@ -7,7 +7,7 @@ using Godot;
 using HttpClient = System.Net.Http.HttpClient;
 
 public partial class RoomListHandler : Node {
-    private readonly HttpClient _httpClient = new HttpClient();
+    private readonly HttpClient _httpClient = new();
     [Export] private Control _roomContainer;
     [Export] private PackedScene _roomItem;
 
