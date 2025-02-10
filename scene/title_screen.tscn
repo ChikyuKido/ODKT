@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://coinmfvqh0hea"]
+[gd_scene load_steps=3 format=3 uid="uid://coinmfvqh0hea"]
 
-[ext_resource type="Script" path="res://scripts/title/title_handler.gd" id="1_23c7d"]
+[ext_resource type="PackedScene" uid="uid://dkukvoah5pk25" path="res://scene/room_list.tscn" id="2_4f3h2"]
+[ext_resource type="Script" path="res://scripts/helpers/SceneSwitcher.cs" id="2_uc0fg"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -9,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_23c7d")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 1
@@ -29,5 +29,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Room List"
+script = ExtResource("2_uc0fg")
+_scenePath = ExtResource("2_4f3h2")
 
 [connection signal="pressed" from="HFlowContainer/Button" to="." method="_on_room_list_clicked"]

@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkukvoah5pk25"]
+[gd_scene load_steps=6 format=3 uid="uid://dkukvoah5pk25"]
 
 [ext_resource type="FontFile" uid="uid://4iee5tpbf02t" path="res://assets/fonts/League Gothic/LeagueGothic-Regular.ttf" id="1_h73c5"]
-[ext_resource type="Script" path="res://scripts/room_list/room_handler.gd" id="1_wuj7c"]
+[ext_resource type="Script" path="res://scripts/title_screen/room_list/RoomListHandler.cs" id="1_l8nlm"]
+[ext_resource type="PackedScene" uid="uid://b6fad0phw0cc1" path="res://prefabs/ui/room_item.tscn" id="2_addt6"]
+[ext_resource type="Script" path="res://scripts/helpers/SceneSwitcher.cs" id="4_lwqfc"]
+[ext_resource type="PackedScene" uid="uid://coinmfvqh0hea" path="res://scene/title_screen.tscn" id="5_n24ca"]
 
-[node name="RoomList" type="Control"]
+[node name="RoomList" type="Control" node_paths=PackedStringArray("_roomContainer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wuj7c")
+script = ExtResource("1_l8nlm")
+_roomContainer = NodePath("Panel/Control/VBoxContainer/MarginContainer/ScrollContainer/Rooms")
+_roomItem = ExtResource("2_addt6")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -46,6 +51,8 @@ size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_h73c5")
 theme_override_font_sizes/font_size = 28
 text = "Back To Titlescreen"
+script = ExtResource("4_lwqfc")
+_scenePath = ExtResource("5_n24ca")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/Control/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(130, 0)
@@ -56,6 +63,12 @@ theme_override_fonts/normal_font = ExtResource("1_h73c5")
 theme_override_font_sizes/normal_font_size = 48
 text = "Room List"
 fit_content = true
+
+[node name="Button2" type="Button" parent="Panel/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h73c5")
+theme_override_font_sizes/font_size = 28
+text = "Refresh"
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/Control/VBoxContainer"]
 layout_mode = 2
@@ -83,4 +96,4 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="Panel/Control/VBoxContainer/HBoxContainer/Button2" to="." method="SearchRooms"]

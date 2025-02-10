@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf76kor8v45xd"]
+[gd_scene load_steps=2 format=3 uid="uid://cf76kor8v45xd"]
 
-[ext_resource type="Script" path="res://scripts/login/login_handler.gd" id="1_y840b"]
-[ext_resource type="Script" path="res://scripts/login/register_handler.gd" id="2_0851k"]
+[ext_resource type="Script" path="res://scripts/login/AuthHandler.cs" id="1_mh0hh"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("_errorText", "_passwordEdit", "_urlEdit", "_usernameEdit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("1_mh0hh")
+_errorText = NodePath("Panel/VBoxContainer/ErrorText")
+_passwordEdit = NodePath("Panel/VBoxContainer/PasswordEdit")
+_urlEdit = NodePath("Panel/VBoxContainer/UrlEdit")
+_usernameEdit = NodePath("Panel/VBoxContainer/UsernameEdit")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -58,12 +60,10 @@ fit_content = true
 [node name="LoginButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Login"
-script = ExtResource("1_y840b")
 
 [node name="RegisterButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Register"
-script = ExtResource("2_0851k")
 
-[connection signal="pressed" from="Panel/VBoxContainer/LoginButton" to="Panel/VBoxContainer/LoginButton" method="login"]
-[connection signal="pressed" from="Panel/VBoxContainer/RegisterButton" to="Panel/VBoxContainer/RegisterButton" method="_register_user"]
+[connection signal="pressed" from="Panel/VBoxContainer/LoginButton" to="." method="Login"]
+[connection signal="pressed" from="Panel/VBoxContainer/RegisterButton" to="." method="Register"]

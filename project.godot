@@ -12,14 +12,13 @@ config_version=5
 
 config/name="odkt"
 run/main_scene="res://scene/login_scene.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.3", "C#", "Mobile")
 run/max_fps=1000
 config/icon="res://icon.svg"
 
 [autoload]
 
-WebsocketClient="*res://scripts/singletons/websocket_client.gd"
-Globals="*res://scripts/singletons/globals.gd"
+Globals="*res://scripts/singletons/Globals.cs"
 
 [debug]
 
