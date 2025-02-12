@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://coinmfvqh0hea"]
 
-[ext_resource type="PackedScene" uid="uid://dkukvoah5pk25" path="res://scene/room_list.tscn" id="2_4f3h2"]
+[ext_resource type="PackedScene" uid="uid://dkukvoah5pk25" path="res://scene/room_list.tscn" id="2_ry47o"]
 [ext_resource type="Script" path="res://scripts/helpers/SceneSwitcher.cs" id="2_uc0fg"]
 
 [node name="TitleScreen" type="Control"]
@@ -30,6 +30,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Room List"
 script = ExtResource("2_uc0fg")
-_scenePath = ExtResource("2_4f3h2")
+_scenePath = ExtResource("2_ry47o")
 
 [connection signal="pressed" from="HFlowContainer/Button" to="." method="_on_room_list_clicked"]

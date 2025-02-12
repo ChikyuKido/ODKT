@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://scripts/singletons/Globals.cs"
+Singletons="*res://scripts/singletons/Singletons.cs"
 
 [debug]
 
@@ -30,7 +31,7 @@ project/assembly_name="odkt"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/protobuf/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
